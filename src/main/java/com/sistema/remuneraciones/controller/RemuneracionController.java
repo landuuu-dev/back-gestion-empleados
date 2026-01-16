@@ -12,7 +12,15 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/remuneraciones")
-@CrossOrigin(origins = "http://localhost:5173", allowCredentials = "true")
+@CrossOrigin(
+        origins = {
+                "http://localhost:5173",
+                "https://front-gestion-empleados.vercel.app"
+        },
+        allowCredentials = "true"
+)
+
+
 public class RemuneracionController {
 
     @Autowired
