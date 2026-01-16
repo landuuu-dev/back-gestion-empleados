@@ -49,7 +49,14 @@ public class SecurityConfig {
                         .requestMatchers("/api/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
-                .httpBasic(Customizer.withDefaults());
+                .httpBasic(Customizer.withDefaults())
+                .logout(logout -> logout
+                        .logoutUrl("/api/logout")   // La URL para cerrar sesión
+                        .logoutSuccessHandler((request, response, authentication) -> {
+                            response.setStatus(200); // Para que el frontend sepa que salió correctamente
+                        })
+                        .deleteCookies("JSESSIONID")
+                );
 
         return http.build();
     }
