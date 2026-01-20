@@ -10,13 +10,14 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/api/remuneraciones")
 @CrossOrigin(
         origins = {
                 "http://localhost:5173",
-                "https://front-gestion-empleados.vercel.app"
+                "https://front-gestion-empleados.vercel.app",
+                "https://front-gestion-empleados-bqumm7ea4-landuuu-devs-projects.vercel.app" // Agregamos la URL actual de Vercel
         },
+        allowedHeaders = "*",
+        methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE},
         allowCredentials = "true"
 )
 
