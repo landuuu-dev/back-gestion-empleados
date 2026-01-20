@@ -10,9 +10,17 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController //
+@RestController
 @RequestMapping("/api/remuneraciones")
-@CrossOrigin(origins = "*", allowedHeaders = "*") //
+@CrossOrigin(
+        origins = {
+                "http://localhost:5173",
+                "https://front-gestion-empleados.vercel.app",
+                "https://front-gestion-empleados-bqumm7ea4-landuuu-devs-projects.vercel.app"
+        },
+        allowCredentials = "true",
+        allowedHeaders = "*"
+)
 
 public class RemuneracionController {
 
